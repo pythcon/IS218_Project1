@@ -36,27 +36,29 @@
 
                             if (empty($email)){
                                 $out = "Email cannot be empty!";
-                                exit();
+                                $valid = false;
                             }
 
                             if (!$contains_symbol){
                                 $out = "Email does not contain @ symbol!";
-                                exit();
+                                $valid = false;
                             }
 
 
                             //Check Password for requirements
                             if (empty($pass)){
                                 $out = "Password cannot be empty!";
-                                exit();
+                                $valid = false;
                             }
                             if (strlen($pass) <= 8){
                                 $out = "Password must be at least 8 characters!";
-                                exit();
+                                $valid = false;
                             }
 
                             //if they made it past the checks
-                            $out = "Congrats. You made it!";
+                            if ($valid){
+                                $out = "Congrats. You made it!";
+                            }
                             
                             //print out
                             print "<span>$out</span>";
