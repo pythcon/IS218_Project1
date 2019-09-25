@@ -10,26 +10,63 @@ $pass = $_POST ['pass'];
 $contains_symbol = strpos($email, '@') !== false;
 
 if (empty($email)){
-    print "Email cannot be empty!";
+    $out = "Email cannot be empty!";
     exit();
 }
 
 if (!$contains_symbol){
-    print "Email does not contain @ symbol!";
+    $out = "Email does not contain @ symbol!";
     exit();
 }
 
 
 //Check Password for requirements
 if (empty($pass)){
-    print "Password cannot be empty!";
+    $out = "Password cannot be empty!";
     exit();
 }
 if (strlen($pass) <= 8){
-    print "Password must be at least 8 characters!";
+    $out = "Password must be at least 8 characters!";
     exit();
 }
 
 //if they made it past the checks
-print "Congrats. You made it!"
+$out = "Congrats. You made it!"
 ?>
+
+<html>
+	<head>
+		<title>IS218 Project 1 Login</title>
+	</head>
+	<body>
+	<style>
+		//body{
+		//	background-color: #cfb53b;
+		//}
+	</style>
+		<div align=center>
+			<h2>IS218 Project 1 Login</h2>
+        
+        	<br>
+        	<br>
+        	<br>
+        	<br>
+        	<br>
+        
+        	<div align = center style="background-color:#663399;width:19%;border-radius:15px;margain:0 auto;">
+                	<br>
+	    		<div style="max-width:90%;">
+	    		<form action = "login.php" method=post>
+                		<fieldset id="field"><legend>Login</legend>
+                    
+                        <?php print $out ?>
+
+                		</fieldset>
+
+            		</form>
+	    		<br>
+	     		</div>
+        	</div>
+        	</div>
+	</body>
+</html>
