@@ -30,6 +30,7 @@
 
                             $email = $_POST ['email'];
                             $pass = $_POST ['pass'];
+                            $valid = false;
 
                             //Check Email for requirements
                             $contains_symbol = strpos($email, '@') !== false;

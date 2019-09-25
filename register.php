@@ -33,6 +33,7 @@
                             $birthday = $_POST ['birthday'];
                             $email = $_POST ['email'];
                             $pass = $_POST ['pass'];
+                            $valid = false;
                             
                             //Check First Name for requirements
                             if (empty($firstName || $valid))){
