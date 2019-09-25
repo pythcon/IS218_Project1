@@ -8,8 +8,25 @@ $pass = $_POST ['pass'];
 
 //Check Email for requirements
 $contains_symbol = strpos($email, '@') !== false;
-if (!$contains_symbol){
-    
+
+if (empty($email)){
+    print "Email cannot be empty!";
+    exit();
 }
 
+if (!$contains_symbol){
+    print "Email does not contain @ symbol!";
+    exit();
+}
+
+
+//Check Password for requirements
+if (empty($pass)){
+    print "Password cannot be empty!";
+    exit();
+}
+if (strlen($pass) <= 8){
+    print "Password must be at least 8 characters!";
+    exit();
+}
 ?>
