@@ -36,19 +36,19 @@
                             $valid = false;
                             
                             //Check First Name for requirements
-                            if (empty($firstName || $valid))){
+                            if (empty($firstName) || $valid){
                                 $out = "First Name cannot be empty!";
                                 $valid = false;
                             }
                             
                             //Check Last Name for requirements
-                            if (empty($lastName || $valid)){
+                            if (empty($lastName) || $valid){
                                 $out = "Last Name cannot be empty!";
                                 $valid = false;
                             }
                             
                             //Check Birthday for requirements
-                            if (empty($birthday || $valid))){
+                            if (empty($birthday) || $valid){
                                 $out = "Birthday cannot be empty!";
                                 $valid = false;
                             }
@@ -56,7 +56,7 @@
                             //Check Email for requirements
                             $contains_symbol = strpos($email, '@') !== false;
 
-                            if (empty($email || $valid))){
+                            if (empty($email) || $valid){
                                 $out = "Email cannot be empty!";
                                 $valid = false;
                             }
