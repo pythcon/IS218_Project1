@@ -29,4 +29,7 @@ if (strlen($pass) <= 8){
     print "Password must be at least 8 characters!";
     exit();
 }
+
+//if they made it past the checks
+print "Congrats. You made it!"
 ?>
