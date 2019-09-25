@@ -1,39 +1,3 @@
-<?php
-//error reporting code
-error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
-ini_set('display_errors' , 1);
-
-$email = $_POST ['email'];
-$pass = $_POST ['pass'];
-
-//Check Email for requirements
-$contains_symbol = strpos($email, '@') !== false;
-
-if (empty($email)){
-    $out = "Email cannot be empty!";
-    exit();
-}
-
-if (!$contains_symbol){
-    $out = "Email does not contain @ symbol!";
-    exit();
-}
-
-
-//Check Password for requirements
-if (empty($pass)){
-    $out = "Password cannot be empty!";
-    exit();
-}
-if (strlen($pass) <= 8){
-    $out = "Password must be at least 8 characters!";
-    exit();
-}
-
-//if they made it past the checks
-$out = "Congrats. You made it!"
-?>
-
 <html>
 	<head>
 		<title>IS218 Project 1 Login</title>
@@ -59,7 +23,45 @@ $out = "Congrats. You made it!"
 	    		<form action = "login.php" method=post>
                 		<fieldset id="field"><legend>Login</legend>
                     
-                        <?php print $out ?>
+                        <?php
+                            //error reporting code
+                            error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
+                            ini_set('display_errors' , 1);
+
+                            $email = $_POST ['email'];
+                            $pass = $_POST ['pass'];
+
+                            //Check Email for requirements
+                            $contains_symbol = strpos($email, '@') !== false;
+
+                            if (empty($email)){
+                                $out = "Email cannot be empty!";
+                                exit();
+                            }
+
+                            if (!$contains_symbol){
+                                $out = "Email does not contain @ symbol!";
+                                exit();
+                            }
+
+
+                            //Check Password for requirements
+                            if (empty($pass)){
+                                $out = "Password cannot be empty!";
+                                exit();
+                            }
+                            if (strlen($pass) <= 8){
+                                $out = "Password must be at least 8 characters!";
+                                exit();
+                            }
+
+                            //if they made it past the checks
+                            $out = "Congrats. You made it!";
+                            
+                            //print out
+                            print "<span>$out</span>";
+                        ?>
+
 
                 		</fieldset>
 
