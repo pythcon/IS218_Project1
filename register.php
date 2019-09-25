@@ -35,19 +35,19 @@
                             $pass = $_POST ['pass'];
                             
                             //Check First Name for requirements
-                            if (empty($firstName)){
+                            if (empty($firstName || $valid))){
                                 $out = "First Name cannot be empty!";
                                 $valid = false;
                             }
                             
                             //Check Last Name for requirements
-                            if (empty($lastName)){
+                            if (empty($lastName || $valid)){
                                 $out = "Last Name cannot be empty!";
                                 $valid = false;
                             }
                             
                             //Check Birthday for requirements
-                            if (empty($birthday)){
+                            if (empty($birthday || $valid))){
                                 $out = "Birthday cannot be empty!";
                                 $valid = false;
                             }
@@ -55,23 +55,23 @@
                             //Check Email for requirements
                             $contains_symbol = strpos($email, '@') !== false;
 
-                            if (empty($email)){
+                            if (empty($email || $valid))){
                                 $out = "Email cannot be empty!";
                                 $valid = false;
                             }
 
-                            if (!$contains_symbol){
+                            if (!$contains_symbol || $valid)){
                                 $out = "Email does not contain @ symbol!";
                                 $valid = false;
                             }
 
 
                             //Check Password for requirements
-                            if (empty($pass)){
+                            if (empty($pass) || $valid)){
                                 $out = "Password cannot be empty!";
                                 $valid = false;
                             }
-                            if (strlen($pass) <= 8){
+                            if (strlen($pass) <= 8 || $valid)){
                                 $out = "Password must be at least 8 characters!";
                                 $valid = false;
                             }
