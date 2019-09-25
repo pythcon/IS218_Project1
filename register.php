@@ -61,18 +61,18 @@
                                 $valid = false;
                             }
 
-                            if (!$contains_symbol || $valid)){
+                            if (!$contains_symbol || $valid){
                                 $out = "Email does not contain @ symbol!";
                                 $valid = false;
                             }
 
 
                             //Check Password for requirements
-                            if (empty($pass) || $valid)){
+                            if (empty($pass) || $valid){
                                 $out = "Password cannot be empty!";
                                 $valid = false;
                             }
-                            if (strlen($pass) <= 8 || $valid)){
+                            if (strlen($pass) <= 8 || $valid){
                                 $out = "Password must be at least 8 characters!";
                                 $valid = false;
                             }
