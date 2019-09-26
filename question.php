@@ -75,12 +75,6 @@
                                 $out .= "Question Body must be at least 500 characters!<br>";
                                 $valid = false;
                             }
-                            
-                            //Check Question Skills for requirements
-                            if ($questionSkills.length <= 2){
-                                $out .= "There must be at least 2 skills!<br>";
-                                $valid = false;
-                            }
 
                             //if they made it past the checks
                             if ($valid){
