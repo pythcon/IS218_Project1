@@ -33,11 +33,25 @@
                             $questionSkills = $_POST ['questionSkills'];
                             $out = "";
                             $valid = true;
+                            $position = 0;
+                            $counter = 0;
+                            $skills = array();
                             
                             //Parse array
                             $containsComma = strpos($questionSkills, ',') !== false;
                             
-                            if ()
+                            if ($containsComma){
+                                while (strpos($questionSkills, ',', $position) !== false){
+                                    $commaAt = strpos($questionSkills, ',', $position);
+                                    $position = $commaAt;
+                                    $skills[$counter] = substr($questionSkills, $position, $commaAt);
+                                    $counter++;
+                                }
+                                
+                            }else{
+                                out .= "Two Skills must be entered!";
+                                $valid = false;
+                            }
                             
                             //Check Question Name for requirements
                             if (empty($questionName)){
