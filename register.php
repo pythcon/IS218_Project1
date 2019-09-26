@@ -34,7 +34,7 @@
                             $email = $_POST ['email'];
                             $pass = $_POST ['pass'];
                             $valid = false;
-                            out = "";
+                            $out = "";
                             
                             //Check First Name for requirements
                             if (empty($firstName) || $valid){
