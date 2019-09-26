@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>IS218 Project 1 Login</title>
+		<title>IS218 Project 1 Register</title>
 	</head>
 	<body>
 	<style>
@@ -9,7 +9,7 @@
 		//}
 	</style>
 		<div align=center>
-			<h2>IS218 Project 1 Login</h2>
+			<h2>IS218 Project 1 Register</h2>
         
         	<br>
         	<br>

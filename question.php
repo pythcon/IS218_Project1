@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>IS218 Project 1 Login</title>
+		<title>IS218 Project 1 New Question Form</title>
 	</head>
 	<body>
 	<style>
