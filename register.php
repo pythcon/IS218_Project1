@@ -34,20 +34,24 @@
                             $email = $_POST ['email'];
                             $pass = $_POST ['pass'];
                             $out = "";
+                            $valid = true;
                             
                             //Check First Name for requirements
                             if (empty($firstName)){
                                 $out .= "First Name cannot be empty!<br>";
+                                $valid = false;
                             }
                             
                             //Check Last Name for requirements
                             if (empty($lastName)){
                                 $out .= "Last Name cannot be empty!<br>";
+                                $valid = false;
                             }
                             
                             //Check Birthday for requirements
                             if (empty($birthday)){
                                 $out .= "Birthday cannot be empty!<br>";
+                                $valid = false;
                             }
 
                             //Check Email for requirements
@@ -55,22 +59,28 @@
 
                             if (empty($email)){
                                 $out .= "Email cannot be empty!<br>";
+                                $valid = false;
                             }
 
                             if (!$contains_symbol){
                                 $out .= "Email does not contain @ symbol!<br>";
+                                $valid = false;
                             }
 
                             //Check Password for requirements
                             if (empty($pass)){
                                 $out .= "Password cannot be empty!<br>";
+                                $valid = false;
                             }
                             if (strlen($pass) <= 8){
                                 $out .= "Password must be at least 8 characters!<br>";
+                                $valid = false;
                             }
 
                             //if they made it past the checks
+                            if ($valid){
                                 $out = "Congrats. You made it!";
+                            }
                             
                             //print out
                             print "<span>$out</span>";

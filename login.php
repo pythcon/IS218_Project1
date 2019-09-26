@@ -30,30 +30,37 @@
 
                             $email = $_POST ['email'];
                             $pass = $_POST ['pass'];
-                            out = "";
+                            $out = "";
+                            $valid = true;
 
                             //Check Email for requirements
                             $contains_symbol = strpos($email, '@') !== false;
 
                             if (empty($email)){
                                 $out .= "Email cannot be empty!<br>";
+                                $valid = false;
                             }
 
-                            if (!$contains_symbol || $valid){
+                            if (!$contains_symbol){
                                 $out .= "Email does not contain @ symbol!<br>";
+                                $valid = false;
                             }
 
 
                             //Check Password for requirements
-                            if (empty($pass) || $valid){
+                            if (empty($pass)){
                                 $out .= "Password cannot be empty!<br>";
+                                $valid = false;
                             }
-                            if (strlen($pass) <= 8 || $valid){
+                            if (strlen($pass) <= 8){
                                 $out .= "Password must be at least 8 characters!<br>";
+                                $valid = false;
                             }
 
                             //if they made it past the checks
+                            if ($valid){
                                 $out = "Congrats. You made it!";
+                            }
                             
                             //print out
                             print "<span>$out</span>";

@@ -32,6 +32,7 @@
                             $questionBody = $_POST ['questionBody'];
                             $questionSkills = $_POST ['questionSkills'];
                             $out = "";
+                            $valid = true;
                             
                             //Parse array
                             $containsComma = strpos($questionSkills, ',') !== false;
@@ -41,28 +42,36 @@
                             //Check Question Name for requirements
                             if (empty($questionName)){
                                 $out .= "Question Name cannot be empty!<br>";
+                                $valid = false;
+                                
                             }
                             
                             if (strlen($questionName) <= 3){
                                 $out .= "Question Name must be at least 3 characters!<br>";
+                                $valid = false;
                             }
                             
                             //Check Question Body for requirements
                             if (empty($questionBody)){
                                 $out .= "Question Body cannot be empty!<br>";
+                                $valid = false;
                             }
                             
                             if (strlen($questionBody) <= 500){
                                 $out .= "Question Body must be at least 500 characters!<br>";
+                                $valid = false;
                             }
                             
                             //Check Question Skills for requirements
                             if ($questionSkills.length <= 2){
                                 $out .= "There must be at least 2 skills!<br>";
+                                $valid = false;
                             }
 
                             //if they made it past the checks
-                                
+                            if ($valid){
+                                $out = "Congrats. You made it!";
+                            }
                             
                             //print out
                             print "<span>$out</span>";
