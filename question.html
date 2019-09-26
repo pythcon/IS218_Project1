@@ -13,24 +13,27 @@
         
         	<br>
         	<br>
-        	<br>
-        	<br>
-        	<br>
         
         	<div align = center style="background-color:#663399;width:30%;border-radius:15px;margain:0 auto;">
                 	<br>
 	    		<div style="max-width:90%;">
 	    		<form action = "question.php" method=post>
                 		<fieldset id="field"><legend>New Question Form</legend>
-                    
-                        Question Name:  <input name=questionName id=questionName autocomplete="off" placeholder="Question Name" required><br>
-                            
-                        Question Body:  <textarea name=questionBody id=questionBody autocomplete="off" placeholder="Question Body" required></textarea><br>
-                            
-                        Question Skills:  <input name=questionSkills id=questionSkills autocomplete="off" placeholder="Question Skills" required>
-                        
+                    <table>
+                        <tr>
+                            <td>Question Name:</td>
+                            <td><input name=questionName id=questionName autocomplete="off" placeholder="Question Name" required></td><br>
+                        </tr> 
+                        <tr>
+                            <td>Question Body:</td>
+                            <td><textarea name=questionBody id=questionBody autocomplete="off" placeholder="Question Body" rows="6" required></textarea></td><br>
+                        </tr>
+                        <tr>
+                            <td>Question Skills:</td>
+                            <td><input name=questionSkills id=questionSkills autocomplete="off" placeholder="Question Skills" required></td>
+                        </tr>
                         <br><br>
-
+                    </table>
                 		<input type = submit value="Submit Question">
 
                 		</fieldset>
