@@ -35,16 +35,18 @@
                             $valid = true;
                             $position = 0;
                             $counter = 0;
+                            $remainderQuestionSkills = "";
+                            
                             
                             //Parse array
                             $containsComma = strpos($questionSkills, ',') !== false;
                             
                             if ($containsComma){
-                                while (strpos($questionSkills, ',', $position) !== false){
-                                    $commaAt = strpos($questionSkills, ',', $position);
+                                $remainderQuestionSkills = strpos($questionSkills, ',', $position);
+                                while (strpos($remainderQuestionSkills, ',') !== false){
+                                    $commaAt = strpos($remainderQuestionSkills, ',', $position);
                                     $position = $commaAt;
-                                    print("<span>".substr($questionSkills, $position, $commaAt)."</span>");
-                                    $skills[$counter] = substr($questionSkills, $position, $commaAt);
+                                    $skills[$counter] = substr($remainderQuestionSkills, $position, $commaAt);
                                     $counter++;
                                 }
                                 
