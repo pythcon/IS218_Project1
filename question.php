@@ -43,7 +43,7 @@
                                 while (strpos($questionSkills, ',', $position) !== false){
                                     $commaAt = strpos($questionSkills, ',', $position);
                                     $position = $commaAt;
-                                    print(substr($questionSkills, $position, $commaAt));
+                                    print("<span>".substr($questionSkills, $position, $commaAt)."</span>");
                                     $skills[$counter] = substr($questionSkills, $position, $commaAt);
                                     $counter++;
                                 }
