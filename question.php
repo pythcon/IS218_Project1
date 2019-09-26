@@ -49,7 +49,7 @@
                                 }
                                 
                             }else{
-                                out .= "Two Skills must be entered!";
+                                $out .= "Two Skills must be entered!";
                                 $valid = false;
                             }
                             
