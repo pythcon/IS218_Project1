@@ -21,7 +21,7 @@
                 	<br>
 	    		<div style="max-width:90%;">
 	    		<form action = "login.php" method=post>
-                		<fieldset id="field"><legend>Login</legend>
+                		<fieldset id="field"><legend>Register</legend>
                     
                         <?php
                             //error reporting code
