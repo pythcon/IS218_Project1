@@ -49,7 +49,7 @@
                                 }
                                 
                             }else{
-                                $out .= "Two Skills must be entered!";
+                                $out .= "Two Skills must be entered!<br>";
                                 $valid = false;
                             }
                             
@@ -78,7 +78,11 @@
 
                             //if they made it past the checks
                             if ($valid){
-                                $out = "Congrats. You made it!";
+                                $out .= "Congrats. You made it!<br>";
+                                $out .= "Skills:<br>"
+                                for($x = 0; x < $skills.length; $x++){
+                                    $out .= "- " .$skills[x] ."<br>";
+                                }
                             }
                             
                             //print out
