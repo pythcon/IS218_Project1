@@ -35,7 +35,6 @@
                             $valid = true;
                             $position = 0;
                             $counter = 0;
-                            $skills = array();
                             
                             //Parse array
                             $containsComma = strpos($questionSkills, ',') !== false;
