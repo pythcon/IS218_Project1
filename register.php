@@ -36,7 +36,7 @@
                             $out = "";
                             
                             //Check First Name for requirements
-                            if (empty($firstName) || $valid){
+                            if (empty($firstName)){
                                 $out .= "First Name cannot be empty!<br>";
                             }
                             
