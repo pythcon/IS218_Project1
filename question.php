@@ -82,7 +82,7 @@
                             if ($valid){
                                 $out .= "Congrats. You made it!<br>";
                                 $out .= "Skills:<br>";
-                                for($x = 0; x < count($skills); $x++){
+                                for($x = 0; $x < count($skills); $x++){
                                     $out .= "- " .$skills[$x] ."<br>";
                                 }
                             }
