@@ -73,7 +73,7 @@
                                 $out .= "Skills:<br>";
                                 $out .= "<table>";
                                 for($x = 0; $x < count($skills); $x++){
-                                    $out .= "<tr><td>-</td><td>" .$skills[$x] ."</td></tr><br>";
+                                    $out .= "<tr><td>-</td><td>" .$skills[$x] ."</td></tr>";
                                 }
                                 $out .= "</table>";
                             }
