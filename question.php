@@ -40,10 +40,10 @@
                             
                             //Parse array
                             $containsComma = strpos($questionSkills, ',') !== false;
-                            
+                            $remainderQuestionSkills = strpos($questionSkills, ',', $position);
                             if ($containsComma){
-                                $remainderQuestionSkills = strpos($questionSkills, ',', $position);
                                 while (strpos($remainderQuestionSkills, ',') !== false){
+                                    $remainderQuestionSkills = strpos($questionSkills, ',', $position);
                                     $commaAt = strpos($remainderQuestionSkills, ',', $position);
                                     $position = $commaAt;
                                     $skills[$counter] = substr($remainderQuestionSkills, $position, $commaAt);
