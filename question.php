@@ -34,21 +34,12 @@
                             $out = "";
                             $valid = true;
                             $position = 0;
-                            $counter = 0;
-                            $remainderQuestionSkills = "";
                             
                             
                             //Parse array
                             $containsComma = strpos($questionSkills, ',') !== false;
-                            $remainderQuestionSkills = strpos($questionSkills, ',', $position);
                             if ($containsComma){
-                                while (strpos($remainderQuestionSkills, ',') !== false){
-                                    $remainderQuestionSkills = strpos($questionSkills, ',', $position);
-                                    $commaAt = strpos($remainderQuestionSkills, ',', $position);
-                                    $position = $commaAt;
-                                    $skills[$counter] = substr($remainderQuestionSkills, $position, $commaAt);
-                                    $counter++;
-                                }
+                               skills = explode(",", $questionSkills);
                                 
                             }else{
                                 $out .= "Two Skills must be entered!<br>";
