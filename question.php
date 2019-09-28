@@ -71,9 +71,11 @@
                             if ($valid){
                                 $out .= "Congrats. You made it!<br>";
                                 $out .= "Skills:<br>";
+                                $out .= "<table>";
                                 for($x = 0; $x < count($skills); $x++){
-                                    $out .= "- " .$skills[$x] ."<br>";
+                                    $out .= "<tr><td>-</td><td>" .$skills[$x] ."</td></tr><br>";
                                 }
+                                $out .= "</table>";
                             }
                             
                             //print out
