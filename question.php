@@ -33,14 +33,12 @@
                             $questionSkills = $_POST ['questionSkills'];
                             $out = "";
                             $valid = true;
-                            $position = 0;
                             
                             
                             //Parse array
                             $containsComma = strpos($questionSkills, ',') !== false;
                             if ($containsComma){
-                               skills = explode(",", $questionSkills);
-                                
+                               $skills = explode(",", $questionSkills);
                             }else{
                                 $out .= "Two Skills must be entered!<br>";
                                 $valid = false;
