@@ -22,13 +22,18 @@
 	    		<div style="max-width:90%;">
 	    		<form action = "login.php" method=post>
                 		<fieldset id="field"><legend>Login</legend>
-                    
-                        Email:  <input name=email id=email autocomplete="off" placeholder="Email" required><br>
-                            
-                		Password:  <input type=password name=pass id=pass autocomplete="off" placeholder="Password" required><br><br>
-
+                        <table>
+                            <tr>
+                                <td>Email:</td> 
+                                <td><input name=email id=email autocomplete="off" placeholder="Email" required></td>
+                            </tr>
+                            <tr>
+                                <td>Password:</td>
+                                <td><input type=password name=pass id=pass autocomplete="off" placeholder="Password" required></td>
+                            </tr>
+                        </table>
                 		<input type = submit value="Enter the Realm">
-
+                            
                 		</fieldset>
 
             		</form>
