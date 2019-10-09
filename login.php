@@ -52,7 +52,7 @@
                                 $out .= "Password cannot be empty!<br>";
                                 $valid = false;
                             }
-                            if (strlen($pass) <= 8){
+                            if (strlen($pass) < 8){
                                 $out .= "Password must be at least 8 characters!<br>";
                                 $valid = false;
                             }
