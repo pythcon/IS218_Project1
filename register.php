@@ -79,7 +79,12 @@
 
                             //if they made it past the checks
                             if ($valid){
-                                $out = "Congrats. You made it!";
+                                $out = "Congrats. You made it! Here is your data: <br>";
+                                $out .= "First Name: ".$firstName."<br>";
+                                $out .= "Last Name: ".$lastName."<br>";
+                                $out .= "Birthday: ".$birthday."<br>";
+                                $out .= "Email: ".$email."<br>";
+                                $out .= "Password: ".$pass."<br>";
                             }
                             
                             //print out

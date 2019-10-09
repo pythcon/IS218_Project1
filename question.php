@@ -69,8 +69,10 @@
 
                             //if they made it past the checks
                             if ($valid){
-                                $out .= "Congrats. You made it!<br>";
-                                $out .= "Skills:<br>";
+                                $out .= "Congrats. You made it! Here is your data:<br>";
+                                $out .= "Question Name: ".$questionName."<br>";
+                                $out .= "Question Body: <span style='font-size: 5px;'".$questionBody."<br>";
+                                $out .= "Question Skills:<br>";
                                 $out .= "<table>";
                                 for($x = 0; $x < count($skills); $x++){
                                     $out .= "<tr><td>-</td><td>" .$skills[$x] ."</td></tr>";

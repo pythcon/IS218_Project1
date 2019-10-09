@@ -60,8 +60,8 @@
                             //if they made it past the checks
                             if ($valid){
                                 $out = "Congrats. You made it! Here is your data:<br>";
-                                
-                                
+                                $out .= "Email: ".$email."<br>";
+                                $out .= "Password: ".$pass;
                             }
                             
                             //print out
