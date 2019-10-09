@@ -59,7 +59,9 @@
 
                             //if they made it past the checks
                             if ($valid){
-                                $out = "Congrats. You made it!";
+                                $out = "Congrats. You made it! Here is your data:<br>";
+                                
+                                
                             }
                             
                             //print out
