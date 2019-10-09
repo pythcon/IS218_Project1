@@ -72,7 +72,7 @@
                                 $out .= "Congrats. You made it! Here is your data:<br>";
                                 $out .= "Question Name: ".$questionName."<br>";
                                 $out .= "Question Body: <div style='font-size: 7px;'".$questionBody."</div><br>";
-                                $out .= "Question Skills:<br>";
+                                $out .= "<div>Question Skills:</div><br>";
                                 $out .= "<table>";
                                 for($x = 0; $x < count($skills); $x++){
                                     $out .= "<tr><td>-</td><td>" .$skills[$x] ."</td></tr>";
