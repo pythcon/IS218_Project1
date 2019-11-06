@@ -85,6 +85,11 @@
                                 $out .= "Birthday: ".$birthday."<br>";
                                 $out .= "Email: ".$email."<br>";
                                 $out .= "Password: ".$pass."<br>";
+                                
+                                $s = "INSERT INTO accounts(email, firstname, lastname, password) VALUES('$email', '$firstName', '$lastName', '$birthday', '$pass')";
+
+                                $t = mysqli_query($db, $s) or die("Error Querying Database.");
+
                             }
                             
                             //print out
