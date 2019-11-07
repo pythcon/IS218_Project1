@@ -54,10 +54,10 @@
                                 $out .= "Password cannot be empty!<br>";
                                 $valid = false;
                             }
-                            if (strlen($pass) < 8){
+                            /*if (strlen($pass) < 8){
                                 $out .= "Password must be at least 8 characters!<br>";
                                 $valid = false;
-                            }
+                            }*/
 
                             //if they made it past the checks
                             if ($valid){
@@ -76,16 +76,15 @@
                                 $num_rows = mysqli_num_rows($t);
                                 
                                 if ($num_rows>0){
-                                    //sets reset to false and deletes temp password
-                                    $s = "UPDATE accounts SET reset=NULL, resetPassword=NULL WHERE email='$u'";
-                                    $t = mysqli_query($db, $s) or die("Error updating reset status.");
                                     $out = "Congrats. You made it! Here is your data:<br>";
                                     $out .= "Email: ".$email."<br>";
                                     $out .= "Password: ".$pass;
                                     
                                     $s = "SELECT * FROM questions where owneremail='$email'";
                                     
-                                    echo "<table>";
+                                    $t = mysqli_query($db, $s) or die("Error Querying Database.");
+                                    
+                                    echo "<table border='2px;'>";
                                     echo "<tr><td>Title</td><td>Body</td><td>Skills</td></tr>";
                                     while ( $r = mysqli_fetch_array($t,MYSQLI_ASSOC) ) {
                                         $title 				= $r[ "title" ];
