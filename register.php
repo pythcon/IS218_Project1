@@ -27,6 +27,7 @@
                             //error reporting code
                             error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
                             ini_set('display_errors' , 1);
+                            include("account.php");
 
                             $firstName = $_POST ['firstName'];
                             $lastName = $_POST ['lastName'];
@@ -86,7 +87,21 @@
                                 $out .= "Email: ".$email."<br>";
                                 $out .= "Password: ".$pass."<br>";
                                 
-                                $s = "INSERT INTO accounts(email, firstname, lastname, password) VALUES('$email', '$firstName', '$lastName', '$birthday', '$pass')";
+                                $db = mysqli_connect($hostname, $username, $password, $project);
+
+                                if (mysqli_connect_errno()){	  
+                                    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+                                    exit();
+                                }
+                                print "Successfully connected to MySQL.<br>";
+                                mysqli_select_db($db,$project);
+                                
+                                $s = "SELECT * FROM accounts";
+                                $t = mysqli_query($db, $s) or die("Error Querying Database.");
+                                
+                                $num_rows = mysqli_num_rows($t);
+                                
+                                $s = "INSERT INTO accounts VALUES($num_rows+1, '$email', '$firstName', '$lastName', '$birthday', '$pass')";
 
                                 $t = mysqli_query($db, $s) or die("Error Querying Database.");
 
