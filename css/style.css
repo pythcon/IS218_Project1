@@ -1,9 +1,18 @@
 body{
-    background-color: aqua;
+    background: url("../background.jpg");
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 .mainContainer{
     margin: auto;
+}
+
+.mainContainer h2{
+    color: white;
 }
 
 .formContainer{

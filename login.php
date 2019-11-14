@@ -71,7 +71,7 @@
                                         $out = "Congrats, ".$_SESSION['firstName']. " " .$_SESSION['lastName']. ", You made it! Here is your data:<br>";
                                         $out .= "Email: ".$email."<br>";
                                         $out .= "Password: ".$pass;
-                                        $out .= "~YOU WILL BE REDIRECTED SHORTLY!~";
+                                        $out .= "<br><br>~YOU WILL BE REDIRECTED SHORTLY!~";
                                        
                                     }else{
                                         die ("Account not found.");
