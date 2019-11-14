@@ -53,7 +53,7 @@
                                 try {
                                     $db = new PDO($dsn, $db_username, $db_password);
                                     echo "Connected successfully<br>";
-                                    $sql = "SELECT * FROM accounts WHERE email = '$email'";
+                                    $sql = "SELECT * FROM accounts WHERE email = '$email' AND password='$pass'";
                                     $q = $db->prepare($sql);
                                     $q->execute();
                                     $results = $q->fetchAll();
