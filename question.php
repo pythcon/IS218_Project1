@@ -12,6 +12,19 @@
                             //error reporting code
                             error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
                             ini_set('display_errors' , 1);
+                    
+                            if (!$_SESSION['logged']){
+                                echo"
+                                <script>
+                                    alert(\"Not logged in...\");
+                                    window.location.replace(\"login.html\");
+                                </script>";
+                                exit();
+                            }
+                    
+                            $email = $_SESSION['email'];
+                            $id = $_SESSION['id'];
+                            $date = date();
 
                             $questionName = $_POST ['questionName'];
                             $questionBody = $_POST ['questionBody'];
@@ -64,6 +77,28 @@
                                     $out .= "<tr><td>-</td><td>" .$skills[$x] ."</td></tr>";
                                 }
                                 $out .= "</table></td></tr></tabel>";
+                                
+                                $dsn = "mysql:host=$db_hostname;dbname=$db_username";
+                                try {
+                                    $db = new PDO($dsn, $db_username, $db_password);
+                                    echo "Connected successfully<br>";
+                                    $sql = "SELECT * FROM accounts questions";
+                                    $q = $db->prepare($sql);
+                                    $q->execute();
+                                    $results = $q->fetchAll();
+                                    
+                                    $num_rows = $q->rowCount();
+                                    $sql = "INSERT INTO questions VALUES ('$num_rows', '$email', '$id', '$date', '$questionName', '$questionBody', '$questionSkills')";
+                                    $q = $db->prepare($sql);
+                                    $q->execute();
+                                    $results = $q->fetchAll();
+                                    
+                                    $q->closeCursor();
+                                    
+                                    
+                                } catch(PDOException $e) {
+                                    echo "Connection failed: " . $e->getMessage();
+                                }
                             }
                             
                             //print out

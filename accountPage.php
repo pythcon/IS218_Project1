@@ -59,19 +59,25 @@
                                     $results = $q->fetchAll();
                                     
                                     if($q->rowCount() > 0){
-                                        foreach ($results as $row){
-                                            $_SESSION['email'] = $email;
-                                            $_SESSION['firstName'] = $row['fname'];
-                                            $_SESSION['lastName'] = $row['lname'];
-                                            $_SESSION['id'] = $row['id'];
-                                            $_SESSION['logged'] = true;
-                                        }
+                                           
+                                        $sql = "SELECT * FROM questions where owneremail='$email'";
+                                        $q = $db->prepare($sql);
+                                        $q->execute();
+                                        $results = $q->fetchAll();
                                         
-                                        $out = "Congrats, ".$_SESSION['firstName']. " " .$_SESSION['lastName']. ", You made it! Here is your data:<br>";
-                                        $out .= "Email: ".$email."<br>";
-                                        $out .= "Password: ".$pass;
-                                        $out .= "<br><button onclick='questionForm()'>Question Form</button>";
-                                       
+                                        $sql = "SELECT * FROM questions where owneremail='$email'";
+                                        $q = $db->prepare($sql);
+                                        $q->execute();
+                                        $results = $q->fetchAll();
+                                        
+                                        echo "<table border='2px;'>";
+                                        echo "<tr><td>Title</td><td>Body</td><td>Skills</td></tr>";
+                                        foreach ($results as $row){
+                                            echo "<tr>";
+                                            echo "<td>".$row['title']."</td><td>".$row['body']."</td><td>".$row['skills']."</td>";
+                                            echo "</tr>";
+                                        }
+                                        echo "</table>";
                                     }else{
                                         die ("Account not found.");
                                     } 
@@ -90,5 +96,4 @@
         	</div>
         </div>
 	</body>
-    <script src='js/buttonScript.js'></script>
 </html>
