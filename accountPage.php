@@ -25,6 +25,8 @@
                                 exit();
                             }
                     
+                            $email = $_SESSION['email'];
+                    
                             $out = "Welcome, <b>".$_SESSION['firstName']. " " .$_SESSION['lastName']. "</b>, Here is your question data:<br>";
                     
                             //PDO
@@ -32,7 +34,7 @@
                             try {
                                 $db = new PDO($dsn, $db_username, $db_password);
                                 echo "Connected successfully<br>";
-                                $sql = "SELECT * FROM accounts WHERE email = '$email'";
+                                $sql = "SELECT * FROM questions WHERE email='$email'";
                                 $q = $db->prepare($sql);
                                 $q->execute();
                                 $results = $q->fetchAll();
