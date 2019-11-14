@@ -12,6 +12,8 @@
                             //error reporting code
                             error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
                             ini_set('display_errors' , 1);
+                            session_start();
+                            include("account.php");
                     
                             if (!$_SESSION['logged']){
                                 echo"
@@ -24,8 +26,7 @@
                     
                             $email = $_SESSION['email'];
                             $id = $_SESSION['id'];
-                            $date = date();
-
+                    
                             $questionName = $_POST ['questionName'];
                             $questionBody = $_POST ['questionBody'];
                             $questionSkills = $_POST ['questionSkills'];
@@ -67,6 +68,7 @@
 
                             //if they made it past the checks
                             if ($valid){
+                                $skillsOutput = "";
                                 $out .= "Congrats. You made it! Here is your data:<br>";
                                 $out .= "<table>";
                                 $out .= "<tr><td>Name: </td><td>".$questionName."</td></tr>";
@@ -75,8 +77,9 @@
                                 $out .= "<td><table>";
                                 for($x = 0; $x < count($skills); $x++){
                                     $out .= "<tr><td>-</td><td>" .$skills[$x] ."</td></tr>";
+                                    $skillsOutput .= $skills[$x];
                                 }
-                                $out .= "</table></td></tr></tabel>";
+                                $out .= "</table></td></tr></table>";
                                 
                                 $dsn = "mysql:host=$db_hostname;dbname=$db_username";
                                 try {
@@ -88,7 +91,7 @@
                                     $results = $q->fetchAll();
                                     
                                     $num_rows = $q->rowCount();
-                                    $sql = "INSERT INTO questions VALUES ('$num_rows', '$email', '$id', '$date', '$questionName', '$questionBody', '$questionSkills')";
+                                    $sql = "INSERT INTO questions VALUES ('$num_rows', '$email', '$id', NOW(), '$questionName', '$questionBody', '$skillsOutput', '0')";
                                     $q = $db->prepare($sql);
                                     $q->execute();
                                     $results = $q->fetchAll();
@@ -98,6 +101,7 @@
                                     
                                 } catch(PDOException $e) {
                                     echo "Connection failed: " . $e->getMessage();
+                                    exit();
                                 }
                             }
                             

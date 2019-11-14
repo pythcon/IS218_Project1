@@ -71,6 +71,7 @@
                                         $out .= "Email: ".$email."<br>";
                                         $out .= "Password: ".$pass;
                                         $out .= "<br><button onclick='questionForm()'>Question Form</button>";
+                                        $out .= "<br><button onclick='accountPage()'>AccountPage</button>";
                                        
                                     }else{
                                         die ("Account not found.");
@@ -80,6 +81,7 @@
                                     
                                 } catch(PDOException $e) {
                                     echo "Connection failed: " . $e->getMessage();
+                                    exit();
                                 }
                                 
                             }
