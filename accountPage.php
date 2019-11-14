@@ -39,7 +39,7 @@
                                 $q->execute();
                                 $results = $q->fetchAll();
 
-                                $out .= "<table cellpadding='2px'>";
+                                $out .= "<table border='2px'>";
                                 $out .= "<tr><td>Name</td><td>Body</td><td>Skills</td></tr>";
                                 foreach ($results as $row){
                                     $out .= "<tr><td>".$row['title']."</td><td>".$row['body']."</td><td>".$row['skills']."</td></tr>";
