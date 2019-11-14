@@ -34,7 +34,7 @@
                             try {
                                 $db = new PDO($dsn, $db_username, $db_password);
                                 echo "Connected successfully<br>";
-                                $sql = "SELECT * FROM questions WHERE email='$email'";
+                                $sql = "SELECT * FROM questions WHERE owneremail='$email'";
                                 $q = $db->prepare($sql);
                                 $q->execute();
                                 $results = $q->fetchAll();
