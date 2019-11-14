@@ -17,6 +17,11 @@
                             include("account.php");
                             
                             if (!$_SESSION['logged']){
+                                echo"
+                                <script>
+                                    alert(\"Not logged in...\");
+                                    window.location.replace(\"login.html\");
+                                </script>";
                                 exit();
                             }
                     
