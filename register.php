@@ -79,13 +79,13 @@
                                     $db = new PDO($dsn, $db_username, $db_password);
                                     echo "Connected successfully<br>";
                                     $sql = "SELECT * FROM accounts";
-                                    $q = $dsn->prepare($sql);
+                                    $q = $db->prepare($sql);
                                     $q->execute();
                                     $results = $q->fetchAll();
                                     $num_rows = $q->rowCount();
                                     
                                     $sql = "INSERT INTO accounts VALUES($num_rows+1, '$email', '$firstName', '$lastName', '$birthday', '$pass')";
-                                    $q = $dsn->prepare($sql);
+                                    $q = $db->prepare($sql);
                                     $q->execute();
                                     $results = $q->fetchAll();
                                     
