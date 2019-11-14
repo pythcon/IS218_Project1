@@ -72,24 +72,29 @@
                                 $out .= "Email: ".$email."<br>";
                                 $out .= "Password: ".$pass."<br>";
                                 
-                                $db = mysqli_connect($hostname, $username, $password, $project);
-
-                                if (mysqli_connect_errno()){	  
-                                    echo "Failed to connect to MySQL: " . mysqli_connect_error();
-                                    exit();
+                                //PDO
+                                //PDO
+                                $dsn = "mysql:host=$db_hostname;dbname=$db_username";
+                                try {
+                                    $db = new PDO($dsn, $db_username, $db_password);
+                                    echo "Connected successfully<br>";
+                                    $sql = "SELECT * FROM accounts";
+                                    $q = $conn->prepare($sql);
+                                    $q->execute();
+                                    $results = $q->fetchAll();
+                                    $num_rows = $q->rowCount()
+                                    
+                                    $sql = "INSERT INTO accounts VALUES($num_rows+1, '$email', '$firstName', '$lastName', '$birthday', '$pass')";
+                                    $q = $conn->prepare($sql);
+                                    $q->execute();
+                                    $results = $q->fetchAll();
+                                    
+                                    $q->closeCursor();
+                                    
+                                    
+                                } catch(PDOException $e) {
+                                    echo "Connection failed: " . $e->getMessage();
                                 }
-                                print "Successfully connected to MySQL.<br>";
-                                mysqli_select_db($db,$project);
-                                
-                                $s = "SELECT * FROM accounts";
-                                $t = mysqli_query($db, $s) or die("Error Querying Database.");
-                                
-                                $num_rows = mysqli_num_rows($t);
-                                
-                                $s = "INSERT INTO accounts VALUES($num_rows+1, '$email', '$firstName', '$lastName', '$birthday', '$pass')";
-
-                                $t = mysqli_query($db, $s) or die("Error Querying Database.");
-
                             }
                             
                             //print out

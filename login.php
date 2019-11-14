@@ -47,45 +47,44 @@
                             //if they made it past the checks
                             if ($valid){
                                 
-                                $db = mysqli_connect($hostname, $username, $password, $project);
-
-                                if (mysqli_connect_errno()){	  
-                                    echo "Failed to connect to MySQL: " . mysqli_connect_error();
-                                    exit();
-                                }
-                                print "Successfully connected to MySQL.<br>";
-                                mysqli_select_db($db,$project);
-                                
-                                $s = "SELECT * FROM accounts WHERE email = '$email'";
-                                $t = mysqli_query($db, $s) or die("Error Querying Database.");
-                                $num_rows = mysqli_num_rows($t);
-                                
-                                if ($num_rows>0){
-                                    $out = "Congrats. You made it! Here is your data:<br>";
-                                    $out .= "Email: ".$email."<br>";
-                                    $out .= "Password: ".$pass;
-                                    
-                                    $s = "SELECT * FROM questions where owneremail='$email'";
-                                    
-                                    $t = mysqli_query($db, $s) or die("Error Querying Database.");
-                                    
-                                    echo "<table border='2px;'>";
-                                    echo "<tr><td>Title</td><td>Body</td><td>Skills</td></tr>";
-                                    while ( $r = mysqli_fetch_array($t,MYSQLI_ASSOC) ) {
-                                        $title 				= $r[ "title" ];
-                                        $body     	        = $r[ "body" ];
-                                        $skills             = $r[ "skills" ];
+                                //PDO
+                                $dsn = "mysql:host=$db_hostname;dbname=$db_username";
+                                try {
+                                    $db = new PDO($dsn, $db_username, $db_password);
+                                    echo "Connected successfully<br>";
+                                    $sql = "SELECT * FROM accounts WHERE email = '$email'";
+                                    $q = $conn->prepare($sql);
+                                    $q->execute();
+                                    $results = $q->fetchAll();
+                                    if($q->rowCount() > 0){
+                                        $out = "Congrats. You made it! Here is your data:<br>";
+                                        $out .= "Email: ".$email."<br>";
+                                        $out .= "Password: ".$pass;
                                         
-                                        echo "<tr>";
-                                        echo "<td>$title</td><td>$body</td><td>$skills</td>";
-                                        echo "</tr>";
-                                    }
-                                    echo "</table>";
+                                        $sql = "SELECT * FROM questions where owneremail='$email'";
+                                        $q = $conn->prepare($sql);
+                                        $q->execute();
+                                        $results = $q->fetchAll();
+                                        
+                                        echo "<table border='2px;'>";
+                                        echo "<tr><td>Title</td><td>Body</td><td>Skills</td></tr>";
+                                        for ($results as $row){
+                                            echo "<tr>";
+                                            echo "<td>."$row["title"]."</td><td>."$row["body"]".</td><td>.$row["skills"].</td>";
+                                            echo "</tr>";
+                                        }
+                                        echo "</table>";
+                                        
+                                    }else{
+                                        die ("Account not found.");
+                                    } 
+                                    $q->closeCursor();
                                     
+                                    
+                                } catch(PDOException $e) {
+                                    echo "Connection failed: " . $e->getMessage();
                                 }
-                                else{
-                                    die();
-                                }
+                                
                                 
                             }
                             //print out
