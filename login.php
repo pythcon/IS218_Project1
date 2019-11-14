@@ -15,6 +15,7 @@
                             ini_set('display_errors' , 1);
                             
                             include("account.php");
+                            include("functions.php");
 
                             $email = $_POST ['email'];
                             $pass = $_POST ['pass'];
@@ -70,8 +71,7 @@
                                         $out = "Congrats, ".$_SESSION['firstName']. " " .$_SESSION['lastName']. ", You made it! Here is your data:<br>";
                                         $out .= "Email: ".$email."<br>";
                                         $out .= "Password: ".$pass;
-                                        $out .= "<br><button onclick='questionForm()'>Question Form</button>";
-                                        $out .= "<br><button onclick='accountPage()'>AccountPage</button>";
+                                        $out .= "~YOU WILL BE REDIRECTED SHORTLY!~";
                                        
                                     }else{
                                         die ("Account not found.");
@@ -87,6 +87,7 @@
                             }
                             //print out
                             print "<span>$out</span>";
+                            redirect("accountPage.php", 3);
                         ?>
                 </div>
         	</div>

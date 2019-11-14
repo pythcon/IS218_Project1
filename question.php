@@ -14,6 +14,7 @@
                             ini_set('display_errors' , 1);
                             session_start();
                             include("account.php");
+                            include("functions.php");
                     
                             if (!$_SESSION['logged']){
                                 echo"
@@ -80,7 +81,7 @@
                                     $skillsOutput .= $skills[$x];
                                 }
                                 $out .= "</table></td></tr></table>";
-                                $out .= "<br><button onclick='accountPage()'>AccountPage</button>";
+                                $out .= "~YOU WILL BE REDIRECTED SHORTLY!~";
                                 
                                 $dsn = "mysql:host=$db_hostname;dbname=$db_username";
                                 try {
@@ -108,6 +109,7 @@
                             
                             //print out
                             print "<span>$out</span>";
+                            redirect("accountPage.php", 3);
                         ?>
                 </div>
         	</div>

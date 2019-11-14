@@ -13,6 +13,7 @@
                             error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
                             ini_set('display_errors' , 1);
                             include("account.php");
+                            include("functions.php");
 
                             $firstName = $_POST ['firstName'];
                             $lastName = $_POST ['lastName'];
@@ -71,6 +72,7 @@
                                 $out .= "Birthday: ".$birthday."<br>";
                                 $out .= "Email: ".$email."<br>";
                                 $out .= "Password: ".$pass."<br>";
+                                $out .= "~YOU WILL BE REDIRECTED SHORTLY!~";
                                 
                                 //PDO
                                 //PDO
@@ -100,6 +102,7 @@
                             
                             //print out
                             print "<span>$out</span>";
+                            redirect("accountPage.php", 3);
                         ?>
                 </div>
         	</div>

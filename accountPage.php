@@ -15,6 +15,7 @@
                             ini_set('display_errors' , 1);
                             
                             include("account.php");
+                            include("functions.php");
                             
                             if (!$_SESSION['logged']){
                                 echo"
