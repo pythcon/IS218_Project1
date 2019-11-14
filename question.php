@@ -80,6 +80,7 @@
                                     $skillsOutput .= $skills[$x];
                                 }
                                 $out .= "</table></td></tr></table>";
+                                $out .= "<br><button onclick='accountPage()'>AccountPage</button>";
                                 
                                 $dsn = "mysql:host=$db_hostname;dbname=$db_username";
                                 try {
@@ -112,4 +113,5 @@
         	</div>
         </div>
 	</body>
+    <script src='js/buttonScript.js'></script>
 </html>

@@ -39,12 +39,12 @@
                                 $q->execute();
                                 $results = $q->fetchAll();
 
-                                $out .= "<table border='2px'>";
+                                $out .= "<div class='tablePrintout'><table border='2px'>";
                                 $out .= "<tr><td>Name</td><td>Body</td><td>Skills</td></tr>";
                                 foreach ($results as $row){
                                     $out .= "<tr><td>".$row['title']."</td><td>".$row['body']."</td><td>".$row['skills']."</td></tr>";
                                 }
-                                $out .= "</table>";
+                                $out .= "</table></div>";
                                 $out .= "<br><button onclick='questionForm()'>Question Form</button>";
 
                                 $q->closeCursor();

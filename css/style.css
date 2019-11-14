@@ -18,3 +18,12 @@ body{
 .inputContainer{
     margin: auto;
 }
+
+.tablePrintout{
+    overflow: auto;
+}
+
+.tablePrintout tbody{
+    overflow-y: auto;
+    overflow-x: hidden;
+}
