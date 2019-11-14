@@ -45,6 +45,7 @@
                                     $out .= "<tr><td>".$row['title']."</td><td>".$row['body']."</td><td>".$row['skills']."</td></tr>";
                                 }
                                 $out .= "</table>";
+                                $out .= "<br><button onclick='questionForm()'>Question Form</button>";
 
                                 
                                 $q->closeCursor();
