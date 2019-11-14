@@ -72,7 +72,7 @@
                                 $out .= "Birthday: ".$birthday."<br>";
                                 $out .= "Email: ".$email."<br>";
                                 $out .= "Password: ".$pass."<br>";
-                                $out .= "~YOU WILL BE REDIRECTED SHORTLY!~";
+                                $out .= "<br><br>~YOU WILL BE REDIRECTED SHORTLY!~";
                                 
                                 //PDO
                                 //PDO

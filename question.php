@@ -81,7 +81,7 @@
                                     $skillsOutput .= $skills[$x];
                                 }
                                 $out .= "</table></td></tr></table>";
-                                $out .= "~YOU WILL BE REDIRECTED SHORTLY!~";
+                                $out .= "<br><br>~YOU WILL BE REDIRECTED SHORTLY!~";
                                 
                                 $dsn = "mysql:host=$db_hostname;dbname=$db_username";
                                 try {
