@@ -1,52 +1,44 @@
 <html>
 	<head>
 		<title>IS218 Project 1 Register</title>
+        <link rel="stylesheet" href="css/style.css">
 	</head>
-	<body>
-	<style>
-		//body{
-		//	background-color: #cfb53b;
-		//}
-	</style>
-		<div align=center>
-			<h2>IS218 Project 1 Login</h2>
-        
-        	<div align = center style="background-color:#663399;width:19%;border-radius:15px;margain:0 auto;">
-                	<br>
-	    		<div style="max-width:90%;">
-	    		<form action = "register.php" method=post>
-                		<fieldset id="field"><legend>Register</legend>
-                        <table>
-                            <tr>
-                            <td>First Name:</td>
-                            <td><input name=firstName id=firstName autocomplete="off" placeholder="Johnny" required></td>
-                            </tr>
-                            <tr>
-                            <td>Last Name:</td>
-                            <td><input name=lastName id=lastName autocomplete="off" placeholder="Appleseed" required></td>
-                            </tr>
-                            <tr>
-                            <td>Birthday:</td>
-                            <td><input name=birthday id=birthday autocomplete="off" placeholder="1970/01/30" required></td>
-                            </tr>
-                            <tr>
-                            <td>Email:</td>
-                            <td><input name=email id=email autocomplete="off" placeholder="Email" required></td>
-                            </tr>
-                            <tr>
-                            <td>Password:</td>
-                            <td><input type=password name=pass id=pass autocomplete="off" placeholder="Password" required></td>
-                            </tr>
-                            <br><br>
-                        </table>
-                		<input type = submit value="Register">
-
-                		</fieldset>
-
-            		</form>
-	    		<br>
-	     		</div>
+    <body>
+        <div class="mainContainer">
+            <h2>IS218 Project 1 Register</h2>
+        	<div>
+                <div class="formContainer">
+                    <form action = "register.php" method=post>
+                        <div class="inputContainer">
+                            <table>
+                                <tr>
+                                    <td>First Name:</td>
+                                    <td><input name=firstName id=firstName autocomplete="off" placeholder="Johnny" required></td>
+                                </tr>
+                                <tr>
+                                    <td>Last Name:</td>
+                                    <td><input name=lastName id=lastName autocomplete="off" placeholder="Appleseed" required></td>
+                                </tr>
+                                <tr>
+                                    <td>Birthday:</td>
+                                    <td><input name=birthday id=birthday autocomplete="off" placeholder="1970/01/30" required></td>
+                                </tr>
+                                <tr>
+                                    <td>Email:</td> 
+                                    <td><input name=email id=email autocomplete="off" placeholder="Email" required></td>
+                                </tr>
+                                <tr>
+                                    <td>Password:</td>
+                                    <td><input type=password name=pass id=pass autocomplete="off" placeholder="Password" required></td>
+                                </tr>
+                                <tr>
+                                    <td><input type=submit value="Register"></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </form>
+                </div>
         	</div>
-        	</div>
+        </div>
 	</body>
 </html>
