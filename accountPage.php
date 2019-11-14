@@ -47,7 +47,6 @@
                                 $out .= "</table>";
                                 $out .= "<br><button onclick='questionForm()'>Question Form</button>";
 
-                                
                                 $q->closeCursor();
 
 
@@ -63,4 +62,5 @@
         	</div>
         </div>
 	</body>
+    <script src='js/buttonScript.js'></script>
 </html>
