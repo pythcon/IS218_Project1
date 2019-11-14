@@ -56,13 +56,14 @@
                                     $q = $conn->prepare($sql);
                                     $q->execute();
                                     $results = $q->fetchAll();
+                                    
                                     if($q->rowCount() > 0){
                                         $out = "Congrats. You made it! Here is your data:<br>";
                                         $out .= "Email: ".$email."<br>";
                                         $out .= "Password: ".$pass;
                                         
                                         $sql = "SELECT * FROM questions where owneremail='$email'";
-                                        $q = $conn->prepare($sql);
+                                        $q = $db->prepare($sql);
                                         $q->execute();
                                         $results = $q->fetchAll();
                                         
@@ -70,7 +71,7 @@
                                         echo "<tr><td>Title</td><td>Body</td><td>Skills</td></tr>";
                                         for ($results as $row){
                                             echo "<tr>";
-                                            echo "<td>."$row["title"]."</td><td>."$row["body"]".</td><td>.$row["skills"].</td>";
+                                            echo "<td>".$row['title']."</td><td>".$row['body']."</td><td>".$row['skills']."</td>";
                                             echo "</tr>";
                                         }
                                         echo "</table>";
@@ -84,7 +85,6 @@
                                 } catch(PDOException $e) {
                                     echo "Connection failed: " . $e->getMessage();
                                 }
-                                
                                 
                             }
                             //print out
